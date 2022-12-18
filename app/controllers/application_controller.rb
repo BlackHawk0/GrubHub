@@ -1,16 +1,19 @@
 class ApplicationController < ActionController::API
     before_action :authorized
 
-    SECRET = 's3cr3t'
+    SECRET = 'grub_@bit_te'
 
+    # encode the payload
     def encode_token(payload)
         JWT.encode(payload, SECRET)
     end
 
+    # get the jwt token from the header request
     def authentication
         request.headers['Authorization']
     end
 
+    # decode the jwt token
     def decoded_token
         if authentication
             token = authentication.split(' ')[1]
@@ -22,12 +25,14 @@ class ApplicationController < ActionController::API
         end
     end
 
+    # get current user
     def current_user
         if decoded_token
             user_id = decoded_token[0]['user_id']
             User.find(user_id)
         end
     end
+
 
     def logged_in?
         # current_user.present?

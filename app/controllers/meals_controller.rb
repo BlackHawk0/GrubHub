@@ -1,7 +1,5 @@
 class MealsController < ApplicationController
     before_action :authorize_caterer, only: [:create, :update, :destroy]
-    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
     # GET /meals
     def index
@@ -46,12 +44,5 @@ class MealsController < ApplicationController
         render json: {errors: e.record.errors.full_messages}, status: :unprocessable_entity
     end
 
-    def record_not_found
-        render json: {errors: ['Record not found']}, status: :not_found
-    end
-
-    def authorize_caterer
-        render json: { error: 'Not Authorized' }, status: unprocessable_entity unless current_user.user_type == 'caterer'
-    end
-
+   
 end

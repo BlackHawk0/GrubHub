@@ -1,7 +1,7 @@
 class MealsController < ApplicationController
     before_action :authorize_caterer, only: [:create, :update, :destroy]
-    # rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-    # rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
     # GET /meals
     def index
@@ -28,13 +28,13 @@ class MealsController < ApplicationController
         render json: meal, status: :ok
     end
 
-    # # DELETE /meals/id
-    # def destroy
-    #     meal = Meal.find(params[:id])
-    #     meal.destroy
-    #     render json: restaurant
-    #     head :no_content
-    # end
+    # DELETE /meals/id
+    def destroy
+        meal = Meal.find(params[:id])
+        meal.destroy
+        render json: restaurant
+        head :no_content
+    end
 
     private
 

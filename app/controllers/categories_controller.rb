@@ -51,6 +51,6 @@ class CategoriesController < ApplicationController
     end
 
     def authorize_caterer
-        render json: { error: 'Not Authorized' }, status: 401 unless current_user.user_type == 'caterer'
+        render json: { error: 'Not Authorized' }, status: unprocessable_entity unless current_user.user_type == 'caterer'
     end
 end

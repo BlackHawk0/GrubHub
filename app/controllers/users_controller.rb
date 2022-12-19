@@ -13,9 +13,9 @@ class UsersController < ApplicationController
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
     end
-    
-    def profle
-        render json: {user: current_user}, status: :authorized
+
+    def profile
+        render json: {user: current_user}, status: :accepted
     end
 
     private

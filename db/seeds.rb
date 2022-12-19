@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Start✍🏻 seeding...📝"
+puts "======================================================="
+  5 .times do
+drink = Drink.create( description: Faker::Markdown.emphasis, price: Faker::Number.decimal(l_digits: 2))
+  end
+
+puts "✅ Done seeding 🌱"

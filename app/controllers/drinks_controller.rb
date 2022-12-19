@@ -1,7 +1,7 @@
 class DrinksController < ApplicationController
 
   def index
-    drinks = Drink.all
+   drinks = Drink.all
     render json: drinks, status: :ok
   end
 
@@ -26,7 +26,7 @@ class DrinksController < ApplicationController
 
   private
   def drink_params
-    params.permit(:name, :description, :price)
+    params.permit(:name, :image_url, :description, :price)
   end
 
 end

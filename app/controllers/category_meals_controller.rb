@@ -3,16 +3,18 @@ class CategoryMealsController < ApplicationController
     # rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     # rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
+    # POST /category_meal
     def create
         category_meal = CategoryMeal.create!(category_meal_params)
         render json: category_meal, status: :created
     end
 
-    # def update
-    #     category_meal = CategoryMeal.find(params[:id])
-    #     category_meal.update!(category_meal_params)
-    #     render json: category_meal, status: :ok
-    # end
+    # PATCH/PUT /category_meal/1
+    def update
+        category_meal = CategoryMeal.find(params[:id])
+        category_meal.update!(category_meal_params)
+        render json: category_meal, status: :ok
+    end
 
     # def destroy
     #     category_meal = CategoryMeal.find(params[:id])

@@ -17,12 +17,13 @@ jobs:
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: grubhub
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '3.0'
-      - name: Install dependencies
-        run: bundle install
-      - name: Set up database
-        run: bundle exec rails db:setup
+    - name: Set up Ruby
+    - uses: actions/checkout@v3
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0'
+#         bundler-cache: true 
+    - name: Install dependencies
+    - run: bundle install
+    - name: Set up database
+    - run: bundle exec rails db:setup

@@ -15,18 +15,18 @@ class MealsController < ApplicationController
         render json: meal, status: :ok
     end
 
-    # # POST /meals
-    # def create
-    #     meal = Meal.create!(meal_params)
-    #     render json: meal, status: :created
-    # end
+    # POST /meals
+    def create
+        meal = Meal.create!(meal_params)
+        render json: meal, status: :created
+    end
 
-    # # PATCH /meals/:id
-    # def update
-    #     meal = Meal.find(params[:id])
-    #     meal.update!(meal_params)
-    #     render json: meal, status: :ok
-    # end
+    # PATCH /meals/:id
+    def update
+        meal = Meal.find(params[:id])
+        meal.update!(meal_params)
+        render json: meal, status: :ok
+    end
 
     # # DELETE /meals/id
     # def destroy
@@ -38,17 +38,17 @@ class MealsController < ApplicationController
 
     private
 
-    # def meal_params
-    #     params.permit(:name, :description, :price)
-    # end
+    def meal_params
+        params.permit(:name, :description, :price)
+    end
 
-    # def record_invalid(e)
-    #     render json: {errors: e.record.errors.full_messages}, status: :unprocessable_entity
-    # end
+    def record_invalid(e)
+        render json: {errors: e.record.errors.full_messages}, status: :unprocessable_entity
+    end
 
-    # def record_not_found
-    #     render json: {errors: ['Record not found']}, status: :not_found
-    # end
+    def record_not_found
+        render json: {errors: ['Record not found']}, status: :not_found
+    end
 
     def authorize_caterer
         render json: { error: 'Not Authorized' }, status: 401 unless current_user.user_type == 'caterer'

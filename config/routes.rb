@@ -11,4 +11,11 @@ Rails.application.routes.draw do
 
   # Category Meals
   resources :category_meals, only: [:create, :update, :destroy]
+
+    # Orders
+  resources :orders, only: [:index, :show, :create]
+
+  # order histories
+  get 'orders/history', to:"order_histories#index"
+  
 end

@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :meal
+  has_many :order_histories
+  has_many :meals, through: :order_histories
 end

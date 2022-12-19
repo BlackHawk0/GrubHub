@@ -13,9 +13,9 @@ class UsersController < ApplicationController
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
     end
-    
-    def profle
-        render json: {user: current_user}, status: :authorized
+# changed the status code from :authorized to :accepted....and also method from profle to profile
+    def profile
+        render json: {user: current_user}, status: :accepted
     end
 
     private

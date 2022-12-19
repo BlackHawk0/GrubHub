@@ -15,18 +15,18 @@ class CategoriesController < ApplicationController
         render json: category, status: :ok
     end
 
-    # # POST /categories
-    # def create
-    #     category = Category.create!(category_params)
-    #     render json: C=category. status: :created
-    # end
+    # POST /categories
+    def create
+        category = Category.create!(category_params)
+        render json: C=category. status: :created
+    end
 
-    # # PUT /categories/1
-    # def update
-    #     category = Category.find(params[:id])
-    #     category.update!(category_params)
-    #     render json: category, status: :accepted
-    # end
+    # PUT /categories/1
+    def update
+        category = Category.find(params[:id])
+        category.update!(category_params)
+        render json: category, status: :accepted
+    end
 
     # # DELETE /categories/1
     # def destroy

@@ -14,8 +14,8 @@ class UsersController < ApplicationController
         end
     end
     
-    def profle
-        render json: {user: current_user}, status: :authorized
+    def profile
+        render json: {user: current_user}, status: :accepted
     end
 
     private

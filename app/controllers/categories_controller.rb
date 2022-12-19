@@ -36,21 +36,21 @@ class CategoriesController < ApplicationController
         head :no_content
     end
     
-    # private
+    private
 
-    # def category_params
-    #     params.params(:name. :image_url)
-    # end
+    def category_params
+        params.params(:name. :image_url)
+    end
 
-    # def record_invalid(e)
-    #     render json: {errors: e.record.errors.full_messages}, status: :unprocessable_entity
-    # end
+    def record_invalid(e)
+        render json: {errors: e.record.errors.full_messages}, status: :unprocessable_entity
+    end
 
-    # def record_not_found
-    #     render json: {errors: ['Record not found']}, status: :not_found
-    # end
+    def record_not_found
+        render json: {errors: ['Record not found']}, status: :not_found
+    end
 
-    # def authorize_caterer
-    #     render json: { error: 'Not Authorized' }, status: 401 unless current_user.user_type == 'caterer'
-    # end
+    def authorize_caterer
+        render json: { error: 'Not Authorized' }, status: 401 unless current_user.user_type == 'caterer'
+    end
 end

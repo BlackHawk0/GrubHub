@@ -21,8 +21,10 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 3.0.1
+          ruby-version: 2.7.1
       - name: Install dependencies
         run: bundle install
       - name: Set up database
         run: bundle exec rails db:setup
+      - name: Run tests
+        run: bundle exec rspec

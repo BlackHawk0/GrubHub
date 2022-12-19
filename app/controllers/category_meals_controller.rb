@@ -1,7 +1,7 @@
 class CategoryMealsController < ApplicationController
-    # before_action :authorize_caterer, only: [:create, :update, :destroy]
-    # rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-    # rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+    before_action :authorize_caterer, only: [:create, :update, :destroy]
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
     # POST /category_meal
     def create
@@ -23,22 +23,22 @@ class CategoryMealsController < ApplicationController
         head :no_content
     end
 
-    # private
+    private
 
-    # def authorize_caterer
-    #     render json: { error: 'Not Authorized' }, status: :unprocessable_entity unless current_user.user_type == 'caterer'
-    # end
+    def authorize_caterer
+        render json: { error: 'Not Authorized' }, status: :unprocessable_entity unless current_user.user_type == 'caterer'
+    end
 
-    # def category_meal_params
-    #     params.require(:category_meal).permit(:meal_id, :category_id)
-    # end
+    def category_meal_params
+        params.require(:category_meal).permit(:meal_id, :category_id)
+    end
 
-    # def record_invalid(e)
-    #     render json: {errors: e.record.errors.full_messages}, status: :unprocessable_entity
-    # end
+    def record_invalid(e)
+        render json: {errors: e.record.errors.full_messages}, status: :unprocessable_entity
+    end
 
-    # def record_not_found
-    #     render json: {errors: ['Record not found']}, status: :not_found
-    # end
+    def record_not_found
+        render json: {errors: ['Record not found']}, status: :not_found
+    end
 
 end

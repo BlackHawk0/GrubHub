@@ -16,11 +16,12 @@ class CategoryMealsController < ApplicationController
         render json: category_meal, status: :ok
     end
 
-    # def destroy
-    #     category_meal = CategoryMeal.find(params[:id])
-    #     category_meal.destroy
-    #     head :no_content
-    # end
+    # DELETE /category_meal/1
+    def destroy
+        category_meal = CategoryMeal.find(params[:id])
+        category_meal.destroy
+        head :no_content
+    end
 
     # private
 

@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
     before_action :authorize_customer, only: [:create]
 
+    def index
+        orders = current_customer.orders.where(status: 'pending')
+        render json: orders, status: :ok
+    end
+
     # POST /orders
     def create 
         order = Order.create!(order_params)

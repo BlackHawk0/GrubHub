@@ -34,6 +34,11 @@ class MealsController < ApplicationController
         head :no_content
     end
 
+    # GET /favourite
+    def favourite
+    end
+    
+
     private
 
     def meal_params

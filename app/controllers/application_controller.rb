@@ -56,5 +56,9 @@ class ApplicationController < ActionController::API
         render json: { error: 'Not Authorized' }, status: unprocessable_entity unless current_user.user_type == 'caterer'
     end
 
+    def record_invalid (e)
+        render json: { errors: e.record.errors.full_messages}, status: :unprocessable_entity
+    end
+
 
 end

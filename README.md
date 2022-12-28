@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+API LINK: https://grub-hub.onrender.com
 
-Things you may want to cover:
+Deployed endpoints
+```sh
+POST /register
+POST /login
+GET /profile
+```
+### Presequites
+Make sure you've registered and logged in.
+If ou are using postman make sure you add Authorization header and a bearer token from the jwt authentication
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## sample
+```js
+fetch('https://grub-hub.onrender.com/profile')
+  .then(res => res.json)
+  .then(data => console.log(data))
+```

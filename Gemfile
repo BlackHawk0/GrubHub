@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.4"
+# ruby "3.0.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
@@ -20,7 +20,8 @@ gem 'jwt', '~> 2.5'
 gem 'active_model_serializers', '~> 0.10.13'
 
 gem 'faker', '~> 3.0'
-
+gem 'byebug', '~> 11.1', '>= 11.1.3'
+gem 'securerandom', '~> 0.2.2'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 

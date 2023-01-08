@@ -13,7 +13,6 @@ class UsersController < ApplicationController
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
     end
-    
     def profile
         render json: {user: current_user}, status: :accepted
     end

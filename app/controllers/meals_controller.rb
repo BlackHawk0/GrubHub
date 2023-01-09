@@ -32,7 +32,7 @@ class MealsController < ApplicationController
         meal.destroy
         render json: restaurant
         head :no_content
-    end
+    end 
     
 
     private

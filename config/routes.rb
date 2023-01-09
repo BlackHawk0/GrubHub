@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  # create a user
   post 'register', to: 'users#create'
   post 'login', to: 'auth#create'
   get 'profile', to: 'users#profile'
+
+  # add to meals of the day
+  post 'favourites', to: 'meals_of_the_days#create'
+
+  # get meals of the day
+  
 
   # meals
   resources :meals
@@ -17,5 +24,7 @@ Rails.application.routes.draw do
 
   # order histories
   get 'orders/history', to:"order_histories#index"
+
+  
   
 end

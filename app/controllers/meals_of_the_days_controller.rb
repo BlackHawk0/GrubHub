@@ -7,11 +7,11 @@ class MealsOfTheDaysController < ApplicationController
         render json: meal, status: :created
     end
 
-    # # GET /favourites
-    # def favourite
-    #     meal = MealsOfTheDay.all
-    #     render json: meal, status: :ok
-    # end
+    # GET /favourites
+    def favourite
+        meal = MealsOfTheDay.all
+        render json: meal, status: :ok
+    end
 
     private
     def meal_params

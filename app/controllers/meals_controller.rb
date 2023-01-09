@@ -4,7 +4,7 @@ class MealsController < ApplicationController
     # GET /meals
     def index
         meals = Meal.all
-        render json: meal, status: :ok
+        render json: meals, status: :ok
     end
 
     # GET /meals/:id

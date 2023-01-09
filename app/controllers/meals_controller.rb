@@ -33,10 +33,6 @@ class MealsController < ApplicationController
         render json: restaurant
         head :no_content
     end
-
-    # GET /favourite
-    def favourite
-    end
     
 
     private

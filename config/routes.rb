@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'favourites', to: 'meals_of_the_days#create'
 
   # get meals of the day
-  
+  get 'favourites', to: 'meals_of_the_days#favourite'
 
   # meals
   resources :meals
@@ -22,8 +22,9 @@ Rails.application.routes.draw do
     # Orders
   resources :orders, only: [:index, :show, :create]
 
-  # order histories
+  # order histories for a user
   get 'orders/history', to:"order_histories#index"
+
 
   
   

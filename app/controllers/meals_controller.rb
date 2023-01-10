@@ -38,7 +38,7 @@ class MealsController < ApplicationController
     private
 
     def meal_params
-        params.permit(:name, :description, :price)
+        params.permit(:name, :description, :price, :image_url)
     end
 
     def record_invalid(e)

@@ -14,6 +14,7 @@ def seed_database
     name: Faker::Food.dish,
     description: Faker::Food.description,
     price: Faker::Commerce.price,
+    image_url: Faker::LoremFlickr.image
     )
 
   end

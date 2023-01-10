@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
     # POST /categories
     def create
         category = Category.create!(category_params)
-        render json: C=category. status: :created
+        render json: category, status: :created
     end
 
     # PUT /categories/1
@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
     private
 
     def category_params
-        params.params(:name. :image_url)
+        params.params(:name, :image_url)
     end
 
     def authorize_caterer

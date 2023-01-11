@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
     # POST /register
     def create
-        byebug
         user = User.create!(user_params)
         if user.valid?
             # issue token to user if they are valid

@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-    # before_action :authorize_caterer, only: [:create, :update, :destroy]
+    before_action :authorize_caterer, only: [:create, :update, :destroy]
 
     # GET /meals
     def index
@@ -30,8 +30,8 @@ class MealsController < ApplicationController
     def destroy
         meal = Meal.find(params[:id])
         meal.destroy
-        # render json: meal, status: :ok
-        head :no_content
+        render json: {message: "Meal Deleted"}
+        # head :no_content
     end 
     
 

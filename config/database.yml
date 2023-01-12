@@ -25,6 +25,7 @@ development:
   <<: *default
   database: book_a_meal_development
 
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -81,6 +82,7 @@ test:
 #
 production:
   <<: *default
-  database: book_a_meal_production
-  username: book_a_meal
-  password: <%= ENV["BOOK_A_MEAL_DATABASE_PASSWORD"] %>
+  # database: book_a_meal_production
+  # username: book_a_meal
+  # password: <%= ENV["BOOK_A_MEAL_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

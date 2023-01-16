@@ -2,6 +2,11 @@ class CategoryMealsController < ApplicationController
     before_action :authorize_caterer, only: [:create, :update, :destroy]
 
 
+    def index
+        category_meal = CategoryMeal.all
+        render json: category_meal, status: :ok
+    end
+    
     # POST /category_meal
     def create
         category_meal = CategoryMeal.create!(category_meal_params)

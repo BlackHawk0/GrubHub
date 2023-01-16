@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :categories
 
   # Category Meals
-  resources :category_meals, only: [:create, :update, :destroy]
+  resources :category_meals, only: [:index, :create, :update, :destroy]
 
     # Orders
   resources :orders, only: [:index, :show, :create]

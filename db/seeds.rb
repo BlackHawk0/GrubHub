@@ -1,4 +1,3 @@
-# Seed the database with fake data
 def seed_database
   # Clear existing data
   puts "seeding data.."
@@ -55,18 +54,20 @@ def seed_database
       meal_id: Meal.order("RANDOM()").first.id
     )
   end
-  puts 'done'
 
   # Create meals of the day
   puts 'generating meals of the day'
   7.times do
     meal = Meal.all.sample
-    MealOfTheDay.create(
+    if meal
+    MealsOfTheDay.create(
       meal_id: meal.id,
       expires_at: Faker::Time.between(from: DateTime.now, to: DateTime.now + 7.days)
     )
+    end
   end
+  puts 'done'
+
 
 end
-
 seed_database

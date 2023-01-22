@@ -6,23 +6,12 @@ class OrdersController < ApplicationController
         render json: orders, status: :ok
     end
 
-    # # POST /orders
-    # def create 
-    #     # byebug
-    #     user = User.find(params[:user_id])
-    #     # order = user.orders.create!(order_params)
-    #     order = Order.create!(order_params.merge(user: user))
-    #     order.order_id = order.generate_order_id
-    #     render json: order, status: :created
-    # end
-
-    # meal_id: item[:id],
     # POST /orders
     def create 
         user = User.find(params[:user_id])
         items = params[:items]
         orders = items.map do |item|
-            Order.create!(user: user, order_id: generate_order_id, meal_id: item[:id], quantity: item[:quantity], total_price: item[:itemTotal], status: 'pending')
+            Order.create!(user: user, order_id: generate_order_id, meal_id: item[:id], quantity: item[:quantity], total_price: item[:itemTotal], status: item[:status])
         end
         render json: orders, status: :created
     end

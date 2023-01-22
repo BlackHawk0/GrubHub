@@ -43,16 +43,16 @@ Meal.create(name:"light bite 3", description:"light bite 3", price:9, image_url:
 Meal.create(name:"light bite 4", description:"light bite 4", price:8, image_url:"https://images.unsplash.com/photo-1542384557-0824d90731ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDR8fHN0cmVldCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", category_id:5)
 
 
-# Create orders
-puts 'generating orders'
-10.times do
-  Order.create(
-    total_prize: Faker::Commerce.price,
-    status: Faker::Boolean.boolean,
-    order_id: Faker::Number.number(digits: 8),
-    user_id: Faker::Number.between(from: 1, to: 5)
-  )
-end
+# # Create orders
+# puts 'generating orders'
+# 10.times do
+#   Order.create(
+#     total_prize: Faker::Commerce.price,
+#     status: Faker::Boolean.boolean,
+#     order_id: Faker::Number.number(digits: 8),
+#     user_id: Faker::Number.between(from: 1, to: 5)
+#   )
+# end
 
 
 # Create meals of the day

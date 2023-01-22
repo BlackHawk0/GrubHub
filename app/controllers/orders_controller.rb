@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    # before_action :authorize_customer, only: [:create]
+    before_action :authorize_customer, only: [:create]
 
     def index
         orders = current_user.orders.where(status: 'pending')

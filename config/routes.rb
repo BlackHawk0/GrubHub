@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :create]
 
   # order histories for a user
-  get 'orders/history', to:"order_histories#index"
+  get 'history', to:"order_histories#index"
 
 
   

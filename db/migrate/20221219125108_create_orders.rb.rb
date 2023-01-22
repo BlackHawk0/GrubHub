@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.integer :meal_id
       t.integer :quantity
       t.decimal :total_price
-      t.string :status, default: "pending"
+      t.string :status
 
       t.timestamps
     end

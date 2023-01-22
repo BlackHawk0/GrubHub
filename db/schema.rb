@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_16_222329) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_19_060230) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_tokens", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -38,6 +44,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_222329) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mpesas", force: :cascade do |t|
+    t.string "phoneNumber"
+    t.string "amount"
+    t.string "checkoutRequestID"
+    t.string "merchantRequestID"
+    t.string "mpesaReceiptNumber"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "order_histories", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "meal_id", null: false
@@ -48,12 +64,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_222329) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "total_prize"
+    t.integer "user_id"
+    t.string "order_id"
+    t.integer "meal_id"
+    t.integer "quantity"
+    t.decimal "total_price"
     t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "order_id"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mpesas
   # create a user
   post 'register', to: 'users#create'
   post 'login', to: 'auth#create'
@@ -9,6 +10,10 @@ Rails.application.routes.draw do
 
   # get meals of the day
   get 'favourites', to: 'meals_of_the_days#favourite'
+
+  # mpesa payment
+  post "/stkpush", to: "mpesas#stkpush"
+  post "/stkquery", to: "mpesas#stkquery"
 
   # meals
   resources :meals

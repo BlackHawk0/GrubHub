@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit(:email, :username, :password)
+        params.permit(:email, :username, :password, :role)
     end
     def send_welcome_email(user)
         # Set up SendGrid client

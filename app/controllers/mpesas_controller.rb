@@ -23,8 +23,8 @@ class MpesasController < ApplicationController
             'PartyB': business_short_code,
             'PhoneNumber': phoneNumber,
             'CallBackURL': "#{ENV["CALLBACK_URL"]}/callback_url",
-            'AccountReference': 'Grokart',
-            'TransactionDesc': "Payment for Grokart groceries"
+            'AccountReference': 'Kibandaski',
+            'TransactionDesc': "Payment for Kibandaski enterprises"
         }.to_json
 
         headers = {
